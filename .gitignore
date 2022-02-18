@@ -17,4 +17,3 @@ xanmanning.k3s*
 terraform.tfstate*
 
 README1.md
-provision/ansible/inventory/hosts.yml
