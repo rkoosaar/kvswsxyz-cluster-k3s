@@ -53,13 +53,13 @@ spec:
         nodes:
           - name: "orange"
             devices:
-              - name: "ata-C400-MTFDDAK256MAM_000000001310036EC8C2"
+              - name: "/dev/disk/by-id/ata-C400-MTFDDAK256MAM_000000001310036EC8C2"
           - name: "passionfruit"
             devices:
-              - name: "ata-Samsung_SSD_850_PRO_256GB_S1SUNSAG339306E"
+              - name: "/dev/disk/by-id/ata-Samsung_SSD_850_PRO_256GB_S1SUNSAG339306E"
           - name: "papaya"
             devices:
-              - name: "ata-SAMSUNG_SSD_830_Series_S0XZNEAC507187"
+              - name: "/dev/disk/by-id/ata-SAMSUNG_SSD_830_Series_S0XZNEAC507187"
     cephBlockPools:
       - name: ceph-blockpool
         spec:
