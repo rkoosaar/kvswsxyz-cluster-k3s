@@ -1,0 +1,21 @@
+---
+- hosts:
+    - worker
+  become: true
+  gather_facts: true
+  any_errors_fatal: true
+  pre_tasks:
+    - name: Pausing for 5 seconds...
+      pause:
+        seconds: 5
+  tasks:
+    - name: Update repositories cache and install "parted" package
+      apt:
+        name: parted
+        update_cache: yes
+    - name: Partition New Disks
+      community.general.parted:
+        device: "/dev/sda"
+        number: 1
+        state: present
+        part_end: "100%"
