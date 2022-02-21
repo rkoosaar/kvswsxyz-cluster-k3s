@@ -56,7 +56,7 @@ tasks:
     desc: Wipe Rook-Ceph disks
     dir: provision/ansible
     cmds:
-      - "ansible-playbook -i {{.ANSIBLE_INVENTORY_DIR}}/hosts.yml {{.ANSIBLE_PLAYBOOK_DIR}}/nuke-rook-ceph.yml"
+      - "ansible-playbook -i {{.ANSIBLE_INVENTORY_DIR}}/hosts.yml {{.ANSIBLE_PLAYBOOK_DIR}}/rook-ceph-nuke.yml"
 
   adhoc:ping:
     desc: Ping all the hosts
