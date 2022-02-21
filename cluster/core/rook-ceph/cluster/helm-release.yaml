@@ -67,7 +67,7 @@ spec:
         nodes:
           - name: "orange"
             devices:
-              - name: "/dev/sda1"
+              - name: "/dev/disk/by-id/ata-C400-MTFDDAK256MAM_000000001310036EC8C2-part1"
           - name: "passionfruit"
             devices:
               - name: "/dev/disk/by-id/ata-Samsung_SSD_850_PRO_256GB_S1SUNSAG339306E-part1"
