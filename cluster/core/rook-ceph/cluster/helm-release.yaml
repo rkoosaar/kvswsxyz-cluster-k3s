@@ -29,20 +29,6 @@ spec:
       enabled: true
     toolbox:
       enabled: true
-
-    ingress:
-      dashboard:
-        ingressClassName: "traefik"
-        annotations:
-          hajimari.io/enable: "true"
-          hajimari.io/icon: "harddisk"
-          hajimari.io/appName: "rook-ceph"
-        host:
-          name: "rook.${SECRET_DOMAIN}"
-          path: "/"
-        tls:
-          - hosts:
-              - "rook.${SECRET_DOMAIN}"
     cephClusterSpec:
       placement:
         all:
