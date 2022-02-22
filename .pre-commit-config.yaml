@@ -1,7 +1,6 @@
 ---
-exclude: '^$'
+exclude: './tmpl/cluster/cluster-secrets.sops.yaml'
 fail_fast: false
-files: './tmpl/cluster/cluster-secrets.sops.yaml'
 repos:
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.26.3
@@ -34,4 +33,3 @@ repos:
     rev: v8.2.7
     hooks:
       - id: gitleaks
-
