@@ -34,6 +34,7 @@ main() {
         verify_age
         verify_git_repository
         verify_cloudflare
+        verify_google_oauth
         success
     else
         # sops configuration file
@@ -146,6 +147,33 @@ verify_age() {
     fi
 }
 
+verify_google_oauth() {
+    _has_envar "BOOTSTRAP_SECRET_GOOGLE_CLIENT_ID"
+    _has_envar "BOOTSTRAP_SECRET_GOOGLE_CLIENT_SECRET"
+    _has_envar "BOOTSTRAP_SECRET_TFA_WHITELIST"
+
+    if [[ "$BOOTSTRAP_SECRET_GOOGLE_CLIENT_ID" = "" ]]; then
+        _log "ERROR" "SECRET_GOOGLE_CLIENT_ID has not been set"
+        exit 1
+    else
+        _log "INFO" "SECRET_GOOGLE_CLIENT_ID has been set"
+    fi
+
+    if [[ "$BOOTSTRAP_SECRET_GOOGLE_CLIENT_SECRET" = "" ]]; then
+        _log "ERROR" "SECRET_GOOGLE_CLIENT_SECRET has not been set"
+        exit 1
+    else
+        _log "INFO" "SECRET_GOOGLE_CLIENT_SECRET has been set"
+    fi
+
+    if [[ "$BOOTSTRAP_SECRET_TFA_WHITELIST" = "" ]]; then
+        _log "ERROR" "SECRET_TFA_WHITELIST has not been set"
+        exit 1
+    else
+        _log "INFO" "SECRET_TFA_WHITELIST has been set"
+    fi
+}
+
 verify_binaries() {
     _has_binary "ansible"
     _has_binary "envsubst"
@@ -226,7 +254,7 @@ verify_ansible_hosts() {
     local node_hostname=
     local default_control_node_prefix=
     local default_worker_node_prefix=
-    
+
     default_control_node_prefix="BOOTSTRAP_ANSIBLE_DEFAULT_CONTROL_NODE_HOSTNAME_PREFIX"
     default_worker_node_prefix="BOOTSTRAP_ANSIBLE_DEFAULT_NODE_HOSTNAME_PREFIX"
     _has_optional_envar "${default_control_node_prefix}"
